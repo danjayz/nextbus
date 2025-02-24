@@ -1,0 +1,11 @@
+version: 1
+app:
+    name: your-app-name
+    framework: static # Since Astro generates a static site
+    build:
+        commands:
+            - npm install
+            - npm run build
+    deploy:
+        commands:
+            - cp -R dist/* $HOME/public_html/
