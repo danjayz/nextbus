@@ -1,0 +1,205 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { Clock, MapPin, Phone, Info, ChevronDown, Bus } from 'lucide-react';
+import { SEO } from 'astro-seo';
+import { Schema } from 'astro-seo-schema';
+
+import busSchedule from '../data/busData.json';
+
+const routeInfo = {
+    distance: "115 KM",
+    route: "A1 Highway",
+    approximateTime: "3h 15m"
+};
+
+// Example article metadata
+const articleInfo = {
+    title: "Colombo - Kandy Bus Timetable: Everything You Need to Know",
+    description: "A comprehensive guide to the Colombo - Kandy bus timetable, including schedules, routes, and tips for travelers.",
+    author: "NextBus Team",
+    publicationDate: "2023-10-15",
+    image: "https://yourwebsite.com/images/bus-timetable.jpg",
+};
+---
+
+<html>
+<head>
+    <title>Colombo - Kandy Bus Timetable | NextBus</title>
+    <SEO
+        title="Colombo - Kandy Bus Timetable | NextBus"
+        description="Find the latest bus schedules for Colombo to Kandy route. Check timings, bus numbers, and contact details for all major bus services."
+        openGraph={{
+            basic: {
+                title: "Colombo - Kandy Bus Timetable | NextBus",
+                type: "website",
+                image: "https://yourwebsite.com/images/bus-timetable.jpg",
+            }
+        }}
+        twitter={{
+            creator: "@yourtwitterhandle",
+        }}
+        extend={{
+            link: [
+                { rel: "icon", href: "/favicon.ico" },
+            ],
+            meta: [
+                {
+                    name: "twitter:image",
+                    content: "https://yourwebsite.com/images/bus-timetable.jpg",
+                },
+                {
+                    name: "twitter:title",
+                    content: "Colombo - Kandy Bus Timetable | NextBus",
+                },
+                {
+                    name: "twitter:description",
+                    content: "Find the latest bus schedules for Colombo to Kandy route. Check timings, bus numbers, and contact details for all major bus services.",
+                },
+            ],
+        }}
+    />
+    <Schema
+        item={{
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": articleInfo.title,
+            "description": articleInfo.description,
+            "image": articleInfo.image,
+            "author": {
+                "@type": "Organization",
+                "name": articleInfo.author,
+                "url": "https://yourwebsite.com/about-us"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "NextBus",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://yourwebsite.com/logo.png"
+                }
+            },
+            "datePublished": articleInfo.publicationDate,
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://yourwebsite.com/colombo-kandy-bus-timetable"
+            }
+        }}
+    />
+</head>
+<body>
+    <Layout title="Colombo - Kandy Bus Timetable | NextBus">
+        <Header />
+
+        <main class="min-h-screen bg-gray-50">
+            {/* Hero Section */}
+            <section class="bg-gradient-to-r from-teal-600 to-teal-700 text-white text-center py-8">
+                <div class="container mx-auto px-4">
+                    <h1 class="text-4xl font-bold mb-2">Colombo - Kandy Bus Timetable</h1>
+                    <p class="text-lg mb-4">Find the best bus schedules, routes, and contact details for your journey between Colombo and Kandy.</p>
+                    <div class="flex justify-center items-center gap-4 text-teal-100">
+                        <div class="flex items-center gap-2">
+                            <Phone className="w-4 h-4" />
+                            <span class="">{routeInfo.distance}</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <Clock className="w-4 h-4" />
+                            <span class="">{routeInfo.approximateTime}</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <Bus className="w-4 h-4" />
+                            <span class="">{routeInfo.route}</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Bus Schedule Cards */}
+            <section class="container mx-auto px-4 py-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Available Bus Services</h2>
+                <div class="space-y-4">
+                    {busSchedule.map((bus) => (
+                        <div class="bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300">
+                            <div class="p-6">
+                                {/* Header */}
+                                <div class="flex justify-between items-start mb-6">
+                                    <div>
+                                        <div class="flex items-center gap-3 mb-1">
+                                            <h3 class="font-bold text-xl text-gray-900">{bus.company}</h3>
+                                            <span class="bg-yellow-500 text-white text-xs font-semibold px-2.5 py-0.5 rounded-full">
+                                                {bus.busNumber}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Journey Details */}
+                                <div class="flex items-center gap-8 mb-6">
+                                    <div class="flex-1">
+                                        <div class="relative flex items-center gap-8">
+                                            {/* Departure */}
+                                            <div class="flex-1">
+                                                <p class="text-2xl font-bold text-gray-900 mb-1">{bus.fromKandy}</p>
+                                                <div class="flex items-center gap-1 text-gray-500">
+                                                    <MapPin className="w-4 h-4" />
+                                                    <span class="text-sm">From {bus.kandyStop}</span>
+                                                </div>
+                                            </div>
+
+                                            {/* Journey Line */}
+                                            <div class="flex-1 relative">
+                                                <div class="absolute inset-0 flex items-center">
+                                                    <div class="h-0.5 w-full bg-gray-200"></div>
+                                                </div>
+                                                <div class="relative flex justify-center">
+                                                    <span class="bg-white px-2 text-gray-500">
+                                                        {routeInfo.approximateTime}
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            {/* Arrival */}
+                                            <div class="flex-1">
+                                                <p class="text-2xl font-bold text-gray-900 mb-1">{bus.fromColombo}</p>
+                                                <div class="flex items-center gap-1 text-gray-500">
+                                                    <MapPin className="w-4 h-4" />
+                                                    <span class="text-sm">To {bus.colomboStop}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Footer */}
+                                <div class="flex justify-between items-center gap-3 flex-wrap">
+                                    <div class="flex items-center gap-1 text-gray-600">
+                                        <Phone className="w-4 h-4" />
+                                        <span class="">{bus.contactNumber}</span>
+                                    </div>
+                                    <div class="flex items-center gap-1 text-gray-600">
+                                        <Bus className="w-4 h-4" />
+                                        <span class="">{routeInfo.route}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+        </main>
+
+        <Footer />
+    </Layout>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .hover\:shadow-lg:hover {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</body>
+</html>
