@@ -1,0 +1,43 @@
+name: Deploy Astro Site to cPanel
+
+on:
+    push:
+        branches:
+            - main # Trigger the deployment on push to the main branch
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            # Checkout the code
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            # Set up Node.js (Astro requires Node.js)
+            - name: Set up Node.js
+              uses: actions/setup-node@v2
+              with:
+                  node-version: "16"
+
+            # Install dependencies
+            - name: Install dependencies
+              run: npm install
+
+            # Build the Astro site
+            - name: Build Astro site
+              run: npm run build
+
+            # Install lftp (to use for FTP deployment)
+            - name: Install lftp
+              run: sudo apt-get install lftp
+
+            # Deploy to cPanel via FTP
+            - name: Deploy to cPanel via FTP
+              run: |
+                  lftp -e "mirror -R ./dist ${CPANEL_DEST_DIR}; quit" -u ${{ secrets.CPANEL_USER }},${{ secrets.CPANEL_PASS }} ftp://${{ secrets.CPANEL_HOST }}
+              env:
+                  CPANEL_USER: ${{ secrets.CPANEL_USER }}
+                  CPANEL_PASS: ${{ secrets.CPANEL_PASS }}
+                  CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
+                  CPANEL_DEST_DIR: ${{ secrets.CPANEL_DEST_DIR }}
