@@ -2,7 +2,7 @@
     {
         "company": "NCG Express",
         "fromKandy": "06:00AM",
-        "fromColombo": "09:15AM",
+        "fromColombo": "09:30AM",
         "busNumber": "NE-5678",
         "contactNumber": "+94 77 123 4567",
         "remarks": ["AC", "Wi-Fi", "USB"],
