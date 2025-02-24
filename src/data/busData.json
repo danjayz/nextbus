@@ -1,0 +1,115 @@
+[
+    {
+        "company": "NCG Express",
+        "fromKandy": "06:00AM",
+        "fromColombo": "09:15AM",
+        "busNumber": "NE-5678",
+        "contactNumber": "+94 77 123 4567",
+        "remarks": ["AC", "Wi-Fi", "USB"],
+        "isCheapest": true,
+        "kandyStop": "Kandy",
+        "colomboStop": "Pettah",
+        "type": "Luxury"
+    },
+    {
+        "company": "SLTTS Katubadda",
+        "fromKandy": "07:30AM",
+        "fromColombo": "10:45AM",
+        "busNumber": "NB-5678",
+        "contactNumber": "+94 76 234 5678",
+        "remarks": ["AC", "Wi-Fi"],
+        "kandyStop": "Kandy",
+        "colomboStop": "Pettah",
+        "type": "Semi-Luxury"
+    },
+    {
+        "company": "Dilanka Express",
+        "fromKandy": "08:45AM",
+        "fromColombo": "12:00PM",
+        "busNumber": "NP-5678",
+        "contactNumber": "+94 75 345 6789",
+        "remarks": ["AC"],
+        "kandyStop": "Kandy",
+        "colomboStop": "Pettah",
+        "type": "Standard"
+    },
+    {
+        "company": "Superline Travels",
+        "fromKandy": "09:30AM",
+        "fromColombo": "01:15PM",
+        "busNumber": "SL-1234",
+        "contactNumber": "+94 74 456 7890",
+        "remarks": ["AC", "Wi-Fi", "Recliner Seats"],
+        "kandyStop": "Kandy",
+        "colomboStop": "Pettah",
+        "type": "Luxury"
+    },
+    {
+        "company": "Golden Express",
+        "fromKandy": "10:15AM",
+        "fromColombo": "02:30PM",
+        "busNumber": "GE-4321",
+        "contactNumber": "+94 73 567 8901",
+        "remarks": ["AC", "Wi-Fi"],
+        "kandyStop": "Kandy",
+        "colomboStop": "Pettah",
+        "type": "Semi-Luxury"
+    },
+    {
+        "company": "Lanka Comfort",
+        "fromKandy": "11:00AM",
+        "fromColombo": "03:45PM",
+        "busNumber": "LC-9876",
+        "contactNumber": "+94 72 678 9012",
+        "remarks": ["AC", "Wi-Fi", "USB", "TV"],
+        "isCheapest": true,
+        "kandyStop": "Kandy",
+        "colomboStop": "Pettah",
+        "type": "Luxury"
+    },
+    {
+        "company": "Speedy Transport",
+        "fromKandy": "12:30PM",
+        "fromColombo": "04:45PM",
+        "busNumber": "ST-1122",
+        "contactNumber": "+94 71 789 0123",
+        "remarks": ["AC"],
+        "kandyStop": "Kandy",
+        "colomboStop": "Pettah",
+        "type": "Standard"
+    },
+    {
+        "company": "City Line",
+        "fromKandy": "02:00PM",
+        "fromColombo": "06:15PM",
+        "busNumber": "CL-2233",
+        "contactNumber": "+94 70 890 1234",
+        "remarks": ["AC", "Wi-Fi", "USB"],
+        "kandyStop": "Kandy",
+        "colomboStop": "Pettah",
+        "type": "Semi-Luxury"
+    },
+    {
+        "company": "Express Lanka",
+        "fromKandy": "03:45PM",
+        "fromColombo": "08:00PM",
+        "busNumber": "EL-3344",
+        "contactNumber": "+94 69 901 2345",
+        "remarks": ["AC", "Wi-Fi"],
+        "kandyStop": "Kandy",
+        "colomboStop": "Pettah",
+        "type": "Luxury"
+    },
+    {
+        "company": "Royal Travels",
+        "fromKandy": "05:00PM",
+        "fromColombo": "09:30PM",
+        "busNumber": "RT-4455",
+        "contactNumber": "+94 68 012 3456",
+        "remarks": ["AC", "Wi-Fi", "USB", "Snacks"],
+        "isCheapest": true,
+        "kandyStop": "Kandy",
+        "colomboStop": "Pettah",
+        "type": "Luxury"
+    }
+]
