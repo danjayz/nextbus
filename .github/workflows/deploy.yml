@@ -35,7 +35,7 @@ jobs:
             # Deploy to cPanel via FTP
             - name: Deploy to cPanel via FTP
               run: |
-                  lftp -e "mirror -R ./dist ${CPANEL_DEST_DIR}; quit" -u ${{ secrets.CPANEL_USER }},${{ secrets.CPANEL_PASS }} ftp://${{ secrets.CPANEL_HOST }}
+                  lftp -e "set ssl:verify-certificate false; mirror -R ./dist ${CPANEL_DEST_DIR}; quit" -u ${{ secrets.CPANEL_USER }},${{ secrets.CPANEL_PASS }} ftp://${{ secrets.CPANEL_HOST }}
               env:
                   CPANEL_USER: ${{ secrets.CPANEL_USER }}
                   CPANEL_PASS: ${{ secrets.CPANEL_PASS }}
